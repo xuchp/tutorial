@@ -1,8 +1,8 @@
 /*
  * @Date: 2024-05-27 15:52:09
- * @LastEditTime: 2024-05-27 17:04:50
+ * @LastEditTime: 2024-05-27 23:24:03
  * @Description:
- * @FilePath: /tutorial/docs/.vitepress/config.mts
+ * @FilePath: \undefinedc:\code\tutorial\docs\.vitepress\config.mts
  */
 import { defineConfig } from 'vitepress'
 import autoSidebar from 'amtf-vitepress-auto-sidebar'
@@ -36,9 +36,7 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      {
-        items: [{ text: 'canvas', link: '/canvas/1.入门.md' }]
-      }
+      { text: 'html', items: [{ text: 'canvas', link: '/canvas/1.入门.md' }] }
     ],
 
     socialLinks: [
