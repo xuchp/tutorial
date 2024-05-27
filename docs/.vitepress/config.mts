@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-05-27 15:52:09
- * @LastEditTime: 2024-05-27 16:01:51
+ * @LastEditTime: 2024-05-27 17:04:50
  * @Description:
  * @FilePath: /tutorial/docs/.vitepress/config.mts
  */
@@ -36,8 +36,9 @@ export default defineConfig({
     },
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      {
+        items: [{ text: 'canvas', link: '/canvas/1.入门.md' }]
+      }
     ],
 
     socialLinks: [
