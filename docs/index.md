@@ -1,10 +1,16 @@
+<!--
+ * @Date: 2024-05-27 15:52:09
+ * @LastEditTime: 2024-05-30 16:45:32
+ * @Description: 
+ * @FilePath: /tutorial/docs/index.md
+-->
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
 
 hero:
-  name: "My Tutorail"
-  text: "A VitePress Site"
+  name: 'My Tutorial'
+  text: 'A VitePress Site'
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -22,4 +28,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-

@@ -27,7 +27,7 @@ export default defineConfig({
     ]
   },
   base: '/tutorial/',
-  title: 'My Tutorail',
+  title: 'My Tutorial',
   description: 'A VitePress Site',
   themeConfig: {
     outline: {
