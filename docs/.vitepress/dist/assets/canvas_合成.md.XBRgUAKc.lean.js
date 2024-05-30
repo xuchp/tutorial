@@ -1,0 +1,1 @@
+import{_ as t,c as a,o,a8 as r}from"./chunks/framework.Uk78KS4B.js";const b=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"canvas/合成.md","filePath":"canvas/合成.md"}'),e={name:"canvas/合成.md"},d=r("",17),n=[d];function s(p,l,i,c,h,g){return o(),a("div",null,n)}const u=t(e,[["render",s]]);export{b as __pageData,u as default};

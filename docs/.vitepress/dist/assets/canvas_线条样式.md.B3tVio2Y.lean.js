@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as r,a8 as o}from"./chunks/framework.Uk78KS4B.js";const g=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"canvas/线条样式.md","filePath":"canvas/线条样式.md"}'),i={name:"canvas/线条样式.md"},a=o("",33),n=[a];function d(s,p,l,h,c,m){return r(),e("div",null,n)}const _=t(i,[["render",d]]);export{g as __pageData,_ as default};

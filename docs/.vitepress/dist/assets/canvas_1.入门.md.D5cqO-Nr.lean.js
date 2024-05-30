@@ -1,1 +1,0 @@
-import{_ as a,c as e,o as t,a8 as n}from"./chunks/framework.Uk78KS4B.js";const m=JSON.parse('{"title":"入门","description":"","frontmatter":{},"headers":[],"relativePath":"canvas/1.入门.md","filePath":"canvas/1.入门.md"}'),i={name:"canvas/1.入门.md"},l=n("",10),s=[l];function r(c,o,_,v,h,p){return t(),e("div",null,s)}const b=a(i,[["render",r]]);export{m as __pageData,b as default};

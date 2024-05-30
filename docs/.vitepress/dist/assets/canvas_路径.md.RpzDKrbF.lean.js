@@ -1,0 +1,1 @@
+import{_ as t,c as r,o as a,a8 as o}from"./chunks/framework.Uk78KS4B.js";const b=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"canvas/路径.md","filePath":"canvas/路径.md"}'),e={name:"canvas/路径.md"},d=o("",72),n=[d];function s(c,i,h,p,l,g){return a(),r("div",null,n)}const _=t(e,[["render",s]]);export{b as __pageData,_ as default};
