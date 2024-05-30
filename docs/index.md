@@ -1,9 +1,3 @@
-<!--
- * @Date: 2024-05-27 15:52:09
- * @LastEditTime: 2024-05-30 16:45:32
- * @Description: 
- * @FilePath: /tutorial/docs/index.md
--->
 ---
 # https://vitepress.dev/reference/default-theme-home-page
 layout: home
