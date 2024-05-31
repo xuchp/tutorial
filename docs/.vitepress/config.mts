@@ -1,6 +1,6 @@
 /*
  * @Date: 2024-05-27 15:52:09
- * @LastEditTime: 2024-05-30 15:11:18
+ * @LastEditTime: 2024-05-31 10:06:04
  * @Description:
  * @FilePath: /tutorial/docs/.vitepress/config.mts
  */
@@ -39,6 +39,10 @@ export default defineConfig({
       {
         text: 'html',
         items: [{ text: 'canvas', link: '/canvas/index.md' }]
+      },
+      {
+        text: 'javascript',
+        items: [{ text: '内置对象', link: '/javascript/index.md' }]
       }
     ],
 
