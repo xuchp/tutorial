@@ -544,3 +544,206 @@ reduce() 可以作为一个高阶函数, 用于函数的 compose。
 **参数说明**:
 |参数|描述|
 |-|-|
+|function(total, currentValue, currentIndex, arr)|必需。函数,数组中的每个元素都会执行这个函数。函数接受四个参数: total, currentValue, currentIndex, arr。total 是累计器, 初始值为 initialValue, 或者上一次调用回调函数的返回值。currentValue 是数组中正在处理的元素, currentIndex 是正在处理的元素的索引, arr 是数组本身。函数返回一个新的累计值。|
+|initialValue|可选。传递给函数的初始值。|
+
+**返回值**: 返回计算结果。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+const sum = (total, currentValue) => total + currentValue
+
+console.log(arr.reduce(sum)) // 15
+console.log(arr.reduce(sum, 10)) // 25
+```
+
+#### reduceRight()
+
+reduceRight() 方法的功能和 reduce() 的功能是一样的， 不同的是 reduceRight() 是从数组的末尾向前将数组中的数组项做累加。
+
+**注意**: reduceRight() 对于空数组是不会执行回调函数的。
+
+**语法**: `array.reduceRight(function(total, currentValue, currentIndex, arr), initialValue)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|function(total, currentValue, currentIndex, arr)|必需。函数,数组中的每个元素都会执行这个函数。函数接受四个参数: total, currentValue, currentIndex, arr。total 是累计器, 初始值为 initialValue, 或者上一次调用回调函数的返回值。currentValue 是数组中正在处理的元素, currentIndex 是正在处理的元素的索引, arr 是数组本身。函数返回一个新的累计值。|
+|initialValue|可选。传递给函数的初始值。|
+
+**返回值**: 返回计算结果。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+const sum = (total, currentValue) => total + currentValue
+
+console.log(arr.reduceRight(sum)) // 15
+console.log(arr.reduceRight(sum, 10)) // 25
+```
+
+#### reverse()
+
+reverse() 方法用于颠倒数组中元素的顺序。
+
+**语法**: `array.reverse()`
+
+**返回值**: 返回颠倒顺序后的数组。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.reverse()) // [5, 4, 3, 2, 1]
+```
+
+#### shift()
+
+shift() 方法用于把数组的第一个元素从其中删除, 并返回第一个元素的值。
+
+**注意**: 此方法改变数组的长度。
+
+**语法**: `array.shift()`
+
+**返回值**: 任意类型, 数组原来的第一个元素值(移除的元素)。数组元素可以是一个字符串，数字，数组，布尔，或者其他对象类型。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.shift()) // 1
+console.log(arr) // [2, 3, 4, 5]
+```
+
+#### slice()
+
+slice() 方法可从已有的数组中返回选定的元素。
+
+slice() 方法可提取字符串的某个部分, 并以新的字符串返回被提取的部分。
+
+**注意**: slice() 方法不会改变原数组。
+
+**语法**: `array.slice(start, end)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|start|可选。规定从何处开始选取。如果该参数为负数, 则表示从原数组中的倒数第几个元素开始提取, slice(-2) 表示提取原数组中倒数第二个元素到最后一个元素(包含最后一个元素)|
+|end|可选。规定从何处结束选取。该参数是数组片断结束处的索引。如果没有指定该参数, 那么切分的数组包含从 start 到数组结束的所有元素。如果该参数为负数, 则表示从原数组中的倒数第几个元素结束提取, slice(-2, -1) 表示提取原数组中第二个元素到最后一个元素(不包含最后一个元素, 也就是只有倒数第二个元素)|
+
+**返回值**: 返回一个新数组, 包含从 start 到 end (不包括该元素) arrayObject 中的元素。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.slice(2)) // [3, 4, 5]
+console.log(arr.slice(2, 4)) // [3, 4]
+console.log(arr.slice(-2)) // [4, 5]
+console.log(arr.slice(-2, -1)) // [4]
+```
+
+#### some()
+
+some() 方法用于检测数组中的元素是否满足指定条件(函数提供)。
+
+some() 方法会依次执行数组的每个元素:
+
+- 如果有一个元素满足条件, 则表达式返回 true, 剩余的元素不会再执行检测。
+
+- 如果没有元素满足条件, 则表达式返回 false。
+
+**注意**: some() 不会对空数组进行检测。
+
+**注意**: some() 方法不会改变原数组。
+
+**语法**: `array.some(function(currentValue, index, arr), thisValue)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|function(currentValue, index, arr)|必需。函数,数组中的每个元素都会执行这个函数。函数接受三个参数: currentValue, index, arr。currentValue 是数组中正在处理的元素, index 是正在处理的元素的索引, arr 是数组本身。|
+|thisValue|可选。对象作为该执行回调时使用, 传递给函数, 用作"this"的值。如果省略了 thisValue, 或者传入 null 或 undefined, 那么回调函数的 this 为全局对象。|
+
+**返回值**: 布尔值。如果数组中有元素满足条件则返回 true, 否则返回 false。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+const isEven = (num) => num % 2 === 0
+
+console.log(arr.some(isEven)) // true
+console.log(arr.some((num) => num > 5)) // false
+```
+
+#### sort()
+
+sort() 方法用于对数组的元素进行排序。
+
+排序可以是字母或者数字, 并按升序或者降序。
+
+默认排序顺序为按字母升序。
+
+**注意**: 当数字是按字母顺序排列时, "40"将排在"5"前面。
+
+使用数字排序, 你必须通过一个函数作为参数来调用。
+
+函数指定数字是按照升序还是降序排列。
+
+**注意**: sort() 方法会改变原数组。
+
+**语法**: `array.sort(sortFunction)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|sortFunction|可选。规定顺序排序, 必须是函数。|
+
+**返回值**: 对数组的引用。请注意, 数组在原数组上进行排序, 不生成副本。
+
+```javascript
+const arr = [5, 3, 1, 4, 2]
+
+arr.sort()
+console.log(arr) // [1, 2, 3, 4, 5]
+
+arr.sort((a, b) => a - b)
+console.log(arr) // [1, 2, 3, 4, 5]
+
+const arr2 = ['banana', 'apple', 'orange', 'pear']
+
+arr2.sort()
+console.log(arr2) // ["apple", "banana", "orange", "pear"]
+
+arr2.sort((a, b) => a.localeCompare(b)) // 按字母顺序排序
+console.log(arr2) // ["apple", "banana", "orange", "pear"]
+```
+
+#### splice()
+
+splice() 方法用于添加或删除数组中的元素。
+
+**注意**: splice() 方法会改变原数组。
+
+**语法**: `array.splice(start, howmany, item1, ..., itemX)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|start|必需。规定从何处添加/删除元素。<br> 该参数是开始插入和(或)删除的数组元素的下标, 必须是数字。|
+|howmany|可选。规定应该删除多少元素。必须是数组, 但可以是"0"。<br> 如果未规定此参数, 则删除从 start 开始到数组结尾的所有元素。|
+|item1, ..., itemX|可选。要添加到数组中的元素, 必须是数组元素或逗号分隔的元素列表。<br> 如果未指定此参数, 则 splice() 只删除元素, 不添加元素。|
+
+**返回值**: 返回从 arrayObject 中删除的元素。如果只删除元素, 则返回一个空数组。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.splice(2, 0, 6, 7)) // []
+console.log(arr) // [1, 2, 6, 7, 3, 4, 5]
+
+console.log(arr.splice(2, 2)) // [6, 7]
+console.log(arr) // [1, 2, 3, 4, 5]
+
+const arr2 = [1, 2, 3, 4, 5]
+
+console.log(arr2.splice(2, 2, 6, 7)) // [3, 4]
+console.log(arr2) // [1, 2, 6, 7, 5]
+```
+
+#### toString()
