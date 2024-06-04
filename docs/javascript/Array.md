@@ -353,4 +353,194 @@ console.log(arr.includes(6)) // false
 
 indexOf() 方法用来查找数组中元素的第一个出现位置。
 
-**语法**: `array.indexOf(searchElement, fromIndex)`
+该方法将从头到尾地检索数组, 看它是否含有对应的元素。开始检索的位置在数组 start 处或数组的开头(没有指定 start 参数时)。如果找到一个 item, 则返回 item 第一次出现的位置。开始位置的索引为 0。
+
+如果在数组中没找到指定元素则返回 -1。
+
+**语法**: `array.indexOf(item, start)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|item|必需。查找的元素|
+|start|可选的整数参数。规定在数组中开始检索的位置。它的合法值是 0 到 stringObject.length - 1。则将从字符串的首字符开始检索。|
+
+**返回值**: 元素在数组中的位置, 如果没有找到则返回 -1。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.indexOf(3)) // 2
+console.log(arr.indexOf(6)) // -1
+```
+
+#### isArray()
+
+用于判断一个对象是否为数组。
+
+如果对象是数组返回 true, 否则返回 false。
+
+**语法**: `Array.isArray(obj)`
+
+**参数说明**:
+|参数|描述|
+|-|-|  
+|obj|必需, 要判断的对象|
+
+**返回值**: 布尔值。如果对象是数组则返回 true, 否则返回 false。
+
+```javascript
+console.log(Array.isArray([1, 2, 3])) // true
+console.log(Array.isArray({})) // false
+```
+
+#### join()
+
+join() 方法用于将数组中的所有元素转换为一个字符串。
+
+元素是通过指定的分隔符进行分隔的。
+
+**语法**: `array.join(separator)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|separator|可选。指定要使用的分隔符。如果省略, 则使用逗号作为分隔符|
+
+**返回值**: 返回一个字符串。该字符串是通过把 arrayObject 的每个元素转换为字符串, 然后把这些字符串连接起来, 在两个元素之间插入 separator 字符串而生成的。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.join()) // "1,2,3,4,5"
+console.log(arr.join(' ')) // "1 2 3 4 5"
+```
+
+#### keys()
+
+keys() 方法用于从数组创建一个包含数字键的可迭代对象。
+
+如果对象是数组返回 true, 否则返回 false。
+
+**语法**: `array.keys()`
+
+**返回值**: 返回一个数组迭代对象。
+
+```javascript
+const arr = [1, 2, 3]
+const iterator = arr.keys()
+console.log(iterator.next().value) // 0
+console.log(iterator.next().value) // 1
+console.log(iterator.next().value) // 2
+```
+
+#### lastIndexOf()
+
+lastIndexOf() 方法返回一个指定元素在数组中最后出现的位置, 从该字符串的后面向前查找。
+
+如果要检索的元素没有出现, 则该方法返回 -1。
+
+该方法将从尾到头地检索数组中指定元素 item。开始检索的位置在数组的 start 处或数组的结尾(没有指定 start 参数时)。如果找到一个 item, 则返回 item 从尾向前检索第一次出现在数组的位置。数组的索引开始位置是从 0 开始的。
+
+如果在数组中没有找到指定元素则返回 -1。
+
+**语法**: `array.lastIndexOf(item, start)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|item|必需。规定需检索的字符串值|
+|start|可选的整数参数。规定在数组中开始检索的位置。它的合法值是 0 到 stringObject.length - 1。则将从字符串的最后一个字符开始检索。|
+
+**返回值**: 如果在 stringObject 中的 fromIndex 位置之前存在 searchValue, 则返回的是出现的最后一个 searchValue 的位置。
+
+```javascript
+const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1]
+
+console.log(arr.lastIndexOf(3)) // 6
+console.log(arr.lastIndexOf(6)) // -1
+
+console.log(arr.lastIndexOf(1, 5)) // 0
+```
+
+#### map()
+
+map() 方法创建一个新数组, 数组中的元素为原始数组元素调用函数处理后的值。
+
+map() 方法按照原始数组顺序依次处理元素。
+
+**注意**: map() 不会对空数组进行检测。
+
+**注意**: map() 方法不会改变原数组。
+
+**语法**: `array.map(function(currentValue, index, arr), thisValue)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|function(currentValue, index, arr)|必需。函数,数组中的每个元素都会执行这个函数。函数接受三个参数: currentValue, index, arr。currentValue 是数组中正在处理的元素, index 是正在处理的元素的索引, arr 是数组本身。函数返回一个新的元素值。|
+|thisValue|可选。对象作为该执行回调时使用, 传递给函数, 用作"this"的值。如果省略了 thisValue, 或者传入 null 或 undefined, 那么回调函数的 this 为全局对象。|
+
+**返回值**: 返回一个新数组, 数组中的元素为原始数组调用函数处理后的值。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+const double = (num) => num * 2
+
+console.log(arr.map(double)) // [2, 4, 6, 8, 10]
+```
+
+#### pop()
+
+pop() 方法从数组中删除最后一个元素, 并返回该元素的值。
+
+**注意**: 此方法改变数组的长度。
+
+**语法**: `array.pop()`
+
+**返回值**: 返回数组中最后一个元素的值。如果数组为空, 则返回 undefined。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.pop()) // 5
+console.log(arr) // [1, 2, 3, 4]
+```
+
+#### push()
+
+push() 方法可向数组的末尾添加一个或多个元素, 并返回新的长度。
+
+**注意**: 新元素将添加在数组的末尾。
+
+**注意**: 此方法改变数组的长度。
+
+**语法**: `array.push(item1, ..., itemX)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|item1, ..., itemX|必需。要添加到数组末尾的元素|
+
+**返回值**: 返回数组的新长度。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.push(6, 7, 8)) // 8
+console.log(arr) // [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+#### reduce()
+
+reduce() 方法接收一个函数作为累加器, 数组中的每个值 (从左到右) 开始缩减, 最终计算为一个值。
+
+reduce() 可以作为一个高阶函数, 用于函数的 compose。
+
+**注意**: reduce() 对于空数组是不会执行回调函数的。
+
+**语法**: `array.reduce(function(total, currentValue, currentIndex, arr), initialValue)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
