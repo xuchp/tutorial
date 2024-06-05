@@ -62,6 +62,7 @@ console.log(arr.prototype) // undefined
 | find            | 返回符合传入测试(函数)条件的数组元素                                                           |
 | findIndex       | 返回符合传入测试(函数)条件的数组元素的索引                                                     |
 | forEach         | 数组每个元素都执行一次回调函数                                                                 |
+| from            | 通过给定的对象中创建一个数组。                                                                 |
 | includes        | 判断一个数组是否包含一个指定的值                                                               |
 | indexOf         | 搜索数组中的元素,并返回它所在的位置                                                            |
 | isArrray        | 判断对象是否为数组                                                                             |
@@ -321,6 +322,46 @@ const logValue = (num) => console.log(num)
 
 arr.forEach(logValue) // 1 2 3 4 5
 ```
+
+#### from()
+
+from() 方法用于通过拥有 length 属性的对象或可迭代的对象来返回一个数组。
+
+如果对象是数组返回 true，否则返回 false。
+
+**语法**: `Array.from(object, mapFn, thisArg)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|object|必需。要转换为数组的对象|
+|mapFn|可选。数组中每个元素要调用的函数。|
+|thisArg|可选。映射函数(mapFunction)中的 this 对象。|
+
+**返回值**: 返回一个新数组。
+
+```javascript
+const obj = { 0: 'a', 1: 'b', 2: 'c', length: 3 }
+const arr = Array.from(obj)
+
+console.log(arr) // ["a", "b", "c"]
+```
+
+#### includes()
+
+includes() 方法用来判断一个数组是否包含一个指定的值, 如果包含则返回 true, 否则返回 false。
+
+**语法**: `array.includes(searchElement, fromIndex)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|searchElement|必需。需要查找的元素值|
+|fromIndex|可选。从该索引处开始查找 searchElement。如果为负值, 则按升序从 array.length + fromIndex 的索引开始搜索,默认为 0|
+
+**注意**:
+
+- 如果 fromIndex 大于等于数组长度, 则方法返回 false。该数组不会被搜索。
 
 #### includes()
 
@@ -747,3 +788,158 @@ console.log(arr2) // [1, 2, 6, 7, 5]
 ```
 
 #### toString()
+
+toString() 方法可把数组转换为字符串，并返回结果。
+
+**注意**: 数组中的元素之间用逗号分隔。
+
+**语法**: `array.toString()`
+
+**返回值**: 字符串, 数组的所有值用逗号隔开。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.toString()) // "1,2,3,4,5"
+```
+
+#### unshift()
+
+unshift() 方法可向数组的开头添加一个或多个元素，并返回新的长度。
+
+**注意**: 该方法将改变数组的数目。
+
+**语法**: `array.unshift(item1, ..., itemX)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|item1, ..., itemX|可选。向数组起始位置添加一个或多个元素。|
+
+**返回值**: 返回数组的新长度。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.unshift(0, -1)) // 7
+console.log(arr) // [0, -1, 1, 2, 3, 4, 5]
+```
+
+#### valueOf()
+
+valueOf() 方法返回 Array 对象的原始值。
+
+该原始值由 Array 对象派生的所有对象继承。
+
+valueOf() 方法通常由 JavaScript 在后台自动调用, 并不显式地出现在代码中。
+
+**注意**: valueOf() 方法不会改变原数组。
+
+**语法**: `array.valueOf()`
+
+**返回值**: 数组的原始值。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.valueOf()) // [1, 2, 3, 4, 5]
+```
+
+#### Array.of()
+
+of() 方法用于将一组值转化为数组, 不考虑参数的数量或类型
+
+Array.of() 和 Array() 构造函数之间的区别在于对单个参数的处理: Array.of(7)创建一个具有单个元素 7 的数组, 而 Array(7)创建一个 length 为 7 的空数组。
+
+如果对象是数组返回 true, 否则返回 false。
+
+**语法**: `Array.of(element0, element1, ...)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|element0, element1, ...|可选。0 个或多个元素, 用于填充数组。|
+
+**返回值**: 一个新的数组。
+
+```javascript
+console.log(Array.of(7)) // [7]
+console.log(Array.of(1, 2, 3)) // [1, 2, 3]
+console.log(Array.of('foo')) // ["foo"]
+console.log(Array.of()) // []
+```
+
+#### Array.at()
+
+at() 方法用于接收一个整数值并返回该索引对应的元素，允许正数和负数。负整数从数组中的最后一个元素开始倒数。
+
+匹配给定索引的数组中的元素。如果找不到指定的索引，则返回 undefined。
+
+在传递非负数时，at() 方法等价于括号表示法。例如，array[0] 和 array.at(0) 均返回第一个元素。但是，当你需要从数组的末端开始倒数时，则不能使用 Python 和 R 语言中支持的 array[-1]，因为方括号内的所有值都会被视为字符串属性，因此你最终读取的是 array["-1"]，这只是一个普通的字符串属性而不是数组索引。
+
+通常的做法是访问 length 并将其减去从末端开始的相对索引。例如，array[array.length - 1]。at() 方法允许使用相对索引，因此上面的示例可以简化为 array.at(-1)。更正式地，当 index < 0 时，该方法将访问索引 index + array.length。
+
+at() 方法是通用的。其仅期望 this 具有 length 属性和以整数为键的属性。
+
+**语法**: `Array.at(index)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|index|必需。整数，要访问的数组元素的索引。当传递负值时,支持从数组末端开始的相对索引; 也就是说, 如果使用负数, 返回的元素将会从数组的末端开始倒数|
+
+**返回值**: 返回数组中指定索引的元素。如果索引超出范围, 则返回 undefined。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(Array.at(arr, 2)) // 3
+console.log(Array.at(arr, -1)) // 5
+console.log(Array.at(arr, 10)) // undefined
+```
+
+#### Arrat.flat()
+
+flat() 方法方法会按照一个可指定的深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。
+
+flat() 方法返回一个包含将数组与子数组中所有元素的新数组。
+
+flat() 方法会递归地遍历数组，将所有嵌套的数组元素提取出来，生成一个新的一维数组。
+
+**语法**: `Array.flat(depth)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|depth|可选。整数，指定要提取嵌套数组的深度。默认值为 1，表示只提取一层嵌套。|
+
+**返回值**: 返回一个新的数组，其中包含将数组与子数组中所有元素的新数组。
+
+```javascript
+const arr = [1, 2, [3, 4, [5, 6]], 7, 8]
+
+console.log(arr.flat()) // [1, 2, 3, 4, [5, 6], 7, 8]
+console.log(arr.flat(2)) // [1, 2, 3, 4, 5, 6, 7, 8]
+```
+
+#### Array.flatMap()
+
+flatMap() 方法首先使用映射函数映射每个元素，然后将结果压缩成一个新数组。它与 map 连着深度值为 1 的 flat 几乎相同，但 flatMap 通常在合并成一种方法的效率稍微高一些。
+
+flatMap() 方法一个新的数组，其中每个元素都是回调函数的结果，并且结构深度 depth 值为 1。
+
+**语法**: `Array.flatMap(callback(currentValue, index, arr), thisValue)`
+
+**参数说明**:
+|参数|描述|
+|-|-|
+|callback(currentValue, index, arr)|必需。函数，数组中的每个元素都会执行这个函数。函数接受三个参数: currentValue, index, arr。currentValue 是数组中正在处理的元素, index 是正在处理的元素的索引, arr 是数组本身。|
+|thisValue|可选。对象作为该执行回调时使用, 传递给函数, 用作"this"的值。如果省略了 thisValue, 或者传入 null 或 undefined, 那么回调函数的 this 为全局对象。|
+
+**返回值**: 一个新的数组，其中包含回调函数的结果。
+
+```javascript
+const arr = [1, 2, 3, 4, 5]
+
+console.log(arr.flatMap((x) => [x, x * 2])) // [1, 2, 2, 4, 3, 6, 4, 8, 5, 10]
+```
