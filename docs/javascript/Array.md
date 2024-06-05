@@ -363,22 +363,6 @@ includes() 方法用来判断一个数组是否包含一个指定的值, 如果�
 
 - 如果 fromIndex 大于等于数组长度, 则方法返回 false。该数组不会被搜索。
 
-#### includes()
-
-includes() 方法用来判断一个数组是否包含一个指定的值, 如果包含则返回 true, 否则返回 false。
-
-**语法**: `array.includes(searchElement, fromIndex)`
-
-**参数说明**:
-|参数|描述|
-|-|-|
-|searchElement|必需。需要查找的元素值|
-|fromIndex|可选。从该索引处开始查找 searchElement。如果为负值, 则按升序从 array.length + fromIndex 的索引开始搜索,默认为 0|
-
-**注意**:
-
-- 如果 fromIndex 大于等于数组长度, 则方法返回 false。该数组不会被搜索。
-
 - 如果 fromIndex 为负值, 则 fromIndex 会被转换为 0。
 
 **返回值**: 布尔值。如果找到指定值则返回 true, 否则返回 false。
